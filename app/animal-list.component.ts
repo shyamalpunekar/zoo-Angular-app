@@ -1,8 +1,8 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
-import { Keg } from './keg.model';
+import { Animal } from './animal.model';
 
 @Component({
-  selector: 'keg-list',
+  selector: 'animal-list',
   template: `
   <select (change)="onFilterChange($event.target.value)">
       <option value="allKegs" selected="selected">All Kegs</option>
@@ -37,8 +37,8 @@ import { Keg } from './keg.model';
   `
 })
 
-export class KegListComponent {
-  @Input() childKegList: Keg[];
+export class AnimalListComponent {
+  @Input() childKegList: Animal[];
   @Output() clickSender = new EventEmitter();
   @Output() pourClickedSender = new EventEmitter();
   filterByRemainingPints: string;
@@ -53,7 +53,7 @@ export class KegListComponent {
       return "strong";
     }
   }
-  editKegClicked(clickedKeg: Keg){
+  editKegClicked(clickedKeg: Animal){
     this.clickSender.emit(clickedKeg);
   }
 

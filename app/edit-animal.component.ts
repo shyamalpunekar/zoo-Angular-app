@@ -1,14 +1,14 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Keg } from './keg.model';
+import { Animal } from './animal.model';
 
 
 @Component({
 
-  selector: 'edit-keg',
+  selector: 'edit-animal',
   template: `
   <div>
     <div *ngIf="childSelectedKeg">
-      <h3 class="formh3">Edit Keg</h3>
+      <h3 class="formh3">Edit Animal</h3>
       <input [(ngModel)]="childSelectedKeg.name">
       <input [(ngModel)]="childSelectedKeg.brand">
       <input [(ngModel)]="childSelectedKeg.pintPrice">
@@ -21,8 +21,8 @@ import { Keg } from './keg.model';
   `
 })
 
-export class EditKegComponent{
-  @Input() childSelectedKeg: Keg;
+export class EditAnimalComponent{
+  @Input() childSelectedKeg: Animal;
   @Output() editDoneButtonClickedSender = new EventEmitter();
 
 
