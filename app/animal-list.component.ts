@@ -4,32 +4,33 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'animal-list',
   template: `
-  <select (change)="onFilterChange($event.target.value)">
-      <option value="allKegs" selected="selected">All Kegs</option>
-      <option value="fullKegs">Kegs Greater than 100</option>
-      <option value="almostEmptyKegs">Kegs Less Than 10</option>
+  <select (change)="onFilterAgeChange($event.target.value)">
+      <option value="allAnimals" selected="selected">All Animals</option>
+      <option value="youngAnimals">Young Animals</option>
+      <option value="oldAnimals">Old Animals</option>
  </select>
  <hr>
- <select (change)="onFilterPriceChange($event.target.value)">
-     <option value="allPrices" selected="selected">All Prices</option>
-     <option value="lowPrice">Kegs Less Than $5</option>
-     <option value="highPrice">Kegs More Than $5</option>
+ <select (change)="onFilterLocationChange($event.target.value)">
+     <option value="allLocations" selected="selected">All Locations</option>
+     <option value="elephantHouse">Elephant House</option>
+     <option value="asia">Asia</option>
 </select>
 <hr>
-
   <ul>
-
-    <div *ngFor = "let keg of childKegList | whatsRemaining:filterByRemainingPints | pricey:filterByPrice" >
-    <div class="col-md-3">
+    <div *ngFor = "let animal of childAnimalList | ageFilter:filterByAge" >
+    <div class="col-md-4">
     <div class="well">
-        <h3> {{keg.name}} </h3>
-        <h4> {{keg.brand}}</h4>
-        <h5> Pint Price <em>(16oz)</em> : $ {{keg.pintPrice}}</h5>
-        <h5 [class]="ABVColor(keg)"> <em> ABV: {{keg.ABV}}% </em></h5>
-        <button (click)="pourPint(keg)">Pour Pint</button><br>
-        <button (click)="pourGrowler(keg)">Pour Growler</button><br>
-        <button (click)="editKegClicked(keg)">Edit</button>
-        <h4> Remaining Pints: {{keg.remainingPints}} </h4>
+        <h3>: {{animal.species}} </h3>
+        <h4>: {{animal.name}}</h4>
+        <h4>: $ {{animal.diet}}</h4>
+        <h4>: {{animal.location}} </h4>
+        <h4>: {{animal.numCare}}</h4>
+        <h4> Sex: {{animal.sex}} </h4>
+        <h4> Likes: {{animal.likes}} </h4>
+        <h4> Dislikes: {{animal.dislikes}} </h4>
+
+         <button (click)="editAnimalClicked(animal)">Edit Animal details</button>
+        
     </div>
     </div>
    </div>
