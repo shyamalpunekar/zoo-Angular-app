@@ -4,26 +4,38 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'new-animal',
   template: `
-  <div *ngIf="!showNewKegForm">
-    <button (click)="newKegButtonClicked()">Add a New Keg</button>
+  <div *ngIf="!showNewAnimalForm">
+    <button (click)="newAnimalButtonClicked()">Add a New Animal</button>
   </div>
 
-  <div *ngIf="showNewKegForm" class="newKegForm">
-    <h1>New Keg</h1>
+  <div *ngIf="showNewAnimalForm" class="newAnimalForm">
+    <h1>New Animal</h1>
     <div>
-       <label>Enter Keg Name:</label>
+        <label>Enter Animal Species:</label>
+       <input #newSpecies>
+       <label>Enter Animal Name:</label>
        <input #newName>
        <br>
-       <label>Enter Keg Brand:</label>
-       <input #newBrand>
+       <label>Enter Animal Age:</label>
+       <input #newAge>
        <br>
-       <label>Enter Keg Price:</label>
-       <input #newPrice>
+       <label>Enter Animal Diet:</label>
+       <input #newDiet>
        <br>
-       <label>Enter Keg ABV:</label>
-       <input #newABV>
+       <label>Enter Animal Location:</label>
+       <input #newLocation>
        <br>
-       <button (click)="submitForm(newName.value, newBrand.value, newPrice.value, newABV.value); newName.value=''; newBrand.value=''; newPrice.value=''; newABV.value='';">Add</button>
+       <label>Enter Animal Sex:</label>
+       <input #newSex>
+       <br>
+       <label>Enter Animal Likes:</label>
+       <input #newLikes>
+       <br>
+       <label>Enter Animal dislikes:</label>
+       <input #newDislikes>
+       <br>
+       <button (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newNumCare.value, newSex.value, newLikes.value, newDislikes.value); newSpecies.value=''; newName.value=''; newAge.value=''; newDiet.value=''; newLocation.value=''; newNumCare.value=''; newSex.value=''; newLikes.value=''; newDislikes.value=''; ">Admit New Animal</button>
+
        <br>
      </div>
    </div>
@@ -31,17 +43,17 @@ import { Animal } from './animal.model';
 })
 
 export class newAnimalComponent {
-  @Output() newKegSender = new EventEmitter();
-  showNewKegForm : boolean;
+  @Output() newAnimalSender = new EventEmitter();
+  showNewAnimalForm : boolean;
 
-  submitForm (newName: string, newBrand: string, newPrice: number, newABV: number){
-    //var newKegToAdd: Animal = new Animal(newName, newBrand, newPrice, newABV, ,);
-    // this.newKegSender.emit(newKegToAdd)
-    // this.showNewKegForm = false;
-  }
+  submitForm (newSpecies: string, newName: string, newAge: number, newDiet: string, newLocation: string, newNumCare: number,newSex: string,newLikes: string, newDislikes: string){
+   var newAnimalToAdd: Animal = new Animal(newSpecies, newName, newAge, newDiet,newLocation,newNumCare,newSex,newLikes,newDislikes);
+   this.newAnimalSender.emit(newAnimalToAdd)
+   this.showNewAnimalForm = false;
+ }
 
-  newKegButtonClicked(){
-      this.showNewKegForm = true;
-  }
+ newAnimalButtonClicked(){
+     this.showNewAnimalForm = true;
+ }
 
 }
