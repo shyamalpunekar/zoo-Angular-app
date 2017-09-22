@@ -1,40 +1,41 @@
 import { Component } from '@angular/core';
-import { Keg } from './keg.model';
+import { Animal } from './animal.model';
 
 @Component({
   selector: 'app-root',
   template: `
   <div class="container">
-    <h1>Epicodus Beer Shed</h1>
-    <new-keg (newKegSender)="addKeg($event)"> </new-keg>
-    <div class="row">
-    <keg-list [childKegList]="masterKegList" (clickSender)="editKeg($event)" (pourClickedSender)="pourPint($event)" ></keg-list>
-    </div>
-    <hr>
-    <edit-keg [childSelectedKeg]="selectedKeg" (editDoneButtonClickedSender)="doneEditing()"> </edit-keg>
+    <h1> Animal Tracker</h1>
+    <h3> {{currentZoo}}</h3>
+    <h4> {{month}}/{{day}}/{{year}}</h4>
+    <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>
+    <animal-list [childAnimalList] = "masterAnimalList" (clickSender)="editAnimal($event)"> </animal-list>
+    <edit-animal [childSelectedAnimal] = "selectedAnimal" (editDoneSender)="doneEdit()"> </edit-animal>
   </div>
   `
 })
 
 export class AppComponent{
+  currentZoo: string = 'Oregon Zoo';
+  currentTime = new Date();
+  month: number = this.currentTime.getMonth() + 1;
+  day: number = this.currentTime.getDate();
+  year: number = this.currentTime.getFullYear();
 
-  masterKegList: Keg[] = [
-    new Keg('Orbiter IPA', 'Ecliptic', 5, 7.4),
-    new Keg('Fresh Hop IPA', 'Great Notion', 4, 7),
-    new Keg('GrapeFruit Sour', 'Gilgamesh', 3, 5)
+  masterAnimalList: Animal[] = [
+    new Animal("elephant", "Sammy",5,"herbivore","Elephant House",5,"male","red bouncy ball", "other male elephants"),
+    new Animal("orangatang", "Flower",1,"herbivore","Monkey Pavilion",5,"female","rope swinging", "music"),
   ];
-  selectedKeg = null;
+  selectedAnimal = null;
 
-  editKeg(clickedKeg ){
-    this.selectedKeg = clickedKeg;
+  editAnimal(clickedAnimal: Animal){
+    this.selectedAnimal = clickedAnimal;
   }
-
-  doneEditing(){
-    this.selectedKeg = null;
+  doneEdit(){
+    this.selectedAnimal = null;
   }
-
-  addKeg(newKegFromChild: Keg){
-    this.masterKegList.push(newKegFromChild);
+  addAnimal(newAnimal: Animal){
+    this.masterAnimalList.push(newAnimal);
   }
 
 }
