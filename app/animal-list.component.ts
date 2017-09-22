@@ -30,7 +30,7 @@ import { Animal } from './animal.model';
         <h4> Dislikes: {{animal.dislikes}} </h4>
 
          <button (click)="editAnimalClicked(animal)">Edit Animal details</button>
-        
+
     </div>
     </div>
    </div>
@@ -39,40 +39,16 @@ import { Animal } from './animal.model';
 })
 
 export class AnimalListComponent {
-  @Input() childKegList: Animal[];
+  @Input() childAnimalList: Animal[];
   @Output() clickSender = new EventEmitter();
-  @Output() pourClickedSender = new EventEmitter();
-  filterByRemainingPints: string;
-  filterByPrice: string;
+  filterByAge: string;
 
-  ABVColor(keg){
-    if (keg.ABV <= 5 ){
-      return "light";
-    } else if(keg.ABV > 5 && keg.ABV <= 7) {
-      return "medium";
-    } else if (keg.ABV > 7){
-      return "strong";
-    }
-  }
-  editKegClicked(clickedKeg: Animal){
-    this.clickSender.emit(clickedKeg);
+  editAnimalClicked(clickedAnimal: Animal){
+    this.clickSender.emit(clickedAnimal);
   }
 
-  pourPint(clickedKeg){
-    if (clickedKeg.remainingPints > 0) {
-      clickedKeg.remainingPints--
-    }
-  }
-  onFilterChange(optionFromMenu){
-    this.filterByRemainingPints = optionFromMenu;
-  }
-  onFilterPriceChange(optionFromMenu){
-    this.filterByPrice = optionFromMenu;
+  onFilterAgeChange(optionFromMenu){
+    this.filterByAge = optionFromMenu;
   }
 
-  pourGrowler(clickedKeg){
-    if(clickedKeg.remainingPints > 2) {
-      clickedKeg.remainingPints = clickedKeg.remainingPints -2;
-    }
   }
-}
