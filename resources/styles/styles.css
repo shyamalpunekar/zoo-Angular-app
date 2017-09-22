@@ -1,0 +1,20 @@
+h1 {
+  color: white;
+}
+.light {
+ color: #d3b44c;
+}
+.medium {
+color: #bc6c16;
+}
+.strong {
+color: #871816;
+}
+body {
+  background-image: url(../images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+label , .formh3{
+  color: white;
+}
