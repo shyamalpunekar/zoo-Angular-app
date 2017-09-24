@@ -8,9 +8,16 @@ import { Animal } from './animal.model';
     <h1> Animal Tracker</h1>
     <h3> {{currentZoo}}</h3>
     <h4> {{month}}/{{day}}/{{year}}</h4>
-    <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>
+    <h4 class="carn">To add a new animal<a href="#addNewAnimal"> Click Here</a></h4>
+    <div class="new-animal">
+    <new-animal (newAnimalSender)="addNewAnimal($event)"></new-animal>
+    </div>
+    <div class="animal-list">
     <animal-list [childAnimalList] = "masterAnimalList" (clickSender)="editAnimal($event)"> </animal-list>
-    <edit-animal [childSelectedAnimal] = "selectedAnimal" (editDoneSender)="doneEdit()"> </edit-animal>
+    </div>
+    <div class="edit-animal">
+    <edit-animal [childSelectedAnimal] = "selectedAnimal" (editButtonClickedSender)="finishedEditing()"> </edit-animal>
+    </div>
   </div>
   `
 })
@@ -22,20 +29,24 @@ export class AppComponent{
   day: number = this.currentTime.getDate();
   year: number = this.currentTime.getFullYear();
 
-  masterAnimalList: Animal[] = [
-    new Animal("elephant", "Sammy",5,"herbivore","Elephant House",5,"male","red bouncy ball", "other male elephants"),
-    new Animal("orangatang", "Flower",1,"herbivore","Monkey Pavilion",5,"female","rope swinging", "music"),
-  ];
   selectedAnimal = null;
 
-  editAnimal(clickedAnimal: Animal){
+  masterAnimalList: Animal[] = [
+    new Animal('./resources/images/polar.jpg', 'Polar Bear', 'Nora', 4, 'Carnivore', 'Polar Cove', 5, 'Female', 'Having Ice Caps to rest on', 'Swimming Long Distances'),
+    new Animal('./resources/images/koala.jpg', 'Koala', 'Sleepy', 2, 'Herbivore', 'Near the bears', 2, 'Male', 'Sleeping in trees and not being bothered', 'Being bothered'),
+    new Animal('./resources/images/kangaroo.jpg', 'Kangaroo', 'Joy', 3, 'Herbivore', 'Near the bears', 4, 'Female', 'Eating cones full of seeds and boxing', 'Being challenged by another kangaroo'),
+    new Animal('./resources/images/badger.jpg', 'Honey Badger', 'Tom', 15, 'Carnivore', 'In the weasel section', 1, 'Male', 'Finding beehives and eating all the honey', 'Having other honey badgers enter their cave')
+  ];
+
+
+  editButtonClicked(clickedAnimal: Animal){
     this.selectedAnimal = clickedAnimal;
   }
-  doneEdit(){
+  finishedEditing(){
     this.selectedAnimal = null;
   }
-  addAnimal(newAnimal: Animal){
-    this.masterAnimalList.push(newAnimal);
+  addNewAnimal(newAnimalFromChild: Animal){
+    this.masterAnimalList.push(newAnimalFromChild);
   }
 
 }

@@ -32,7 +32,7 @@ import { Animal } from './animal.model';
         <h4>Name: {{currentAnimal.name}}</h4>
         <h4>Diet: $ {{currentAnimal.diet}}</h4>
         <h4>:Locations: {{currentAnimal.location}} </h4>
-        <h4>: {{currentAnimal.numCare}}</h4>
+        <h4>: {{currentAnimal.caretaker}}</h4>
         <h4> Sex: {{currentAnimal.sex}} </h4>
         <h4> Likes: {{currentAnimal.likes}} </h4>
         <h4> Dislikes: {{currentAnimal.dislikes}} </h4>
