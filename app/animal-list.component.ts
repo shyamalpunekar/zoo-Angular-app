@@ -15,7 +15,7 @@ import { Animal } from './animal.model';
  </div>
  <hr>
  <div id="food">
- <select (change)="onChange2($event.target.value)">
+ <select (change)="onFilterFoodChange($event.target.value)">
         <option value="" selected disabled>Select Based on Food Eaten</option>
         <option value = "Herbivore"> Herbivores</option>
         <option value = "Carnivore"> Carnivores</option>
@@ -53,8 +53,12 @@ export class AnimalListComponent {
   filterByAge: string = "allAnimals";
   filterByDiet: string = "allAnimals";
 
-  editAnimalClicked(clickedAnimal: Animal){
+  editButtonHasBeenClicked(clickedAnimal: Animal){
     this.clickSender.emit(clickedAnimal);
+  }
+
+  onFilterFoodChange(dietOption){
+    this.filterByDiet = dietOption;
   }
 
   onFilterAgeChange(optionFromMenu){
