@@ -5,11 +5,11 @@ import { Animal } from './animal.model';
   selector: 'new-animal',
   template: `
   <div *ngIf="!showNewAnimalForm">
-    <button (click)="newAnimalButtonClicked()">Add a New Animal</button><hr>
+    <button (click)="newAnimalButtonClicked()">Add New Animal</button><hr>
   </div>
   <div *ngIf="showNewAnimalForm" class="newAnimalForm">
     <h1>New Animal</h1>
-    <div>
+    <div class="form-group">
        <label>Enter Animal Species:</label>
        <input type="text" #newSpecies> <br>
        <label>Enter Animal Name:</label>
@@ -21,7 +21,7 @@ import { Animal } from './animal.model';
        <label>Enter Animal location:</label>
        <input type="text" #newLocation> <br>
        <label>Enter Animal caretaker:</label>
-       <input type="text" #newCaretaker> <br>
+       <input type="number" #newCaretaker> <br>
        <label>Enter Animal gender:</label>
        <input type="text" #newgender> <br>
        <label>Enter Animal Likes:</label>
