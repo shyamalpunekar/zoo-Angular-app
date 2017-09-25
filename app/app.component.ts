@@ -8,16 +8,12 @@ import { Animal } from './animal.model';
     <h1> Animal Tracker</h1>
     <h3> {{currentZoo}}</h3>
     <h4> {{month}}/{{day}}/{{year}}</h4>
-    <h4 class="carn">To add a new animal<a href="#addNewAnimal"> Click Here</a></h4>
-    <div class="new-animal">
-    <new-animal (newAnimalSender)="addNewAnimal($event)"></new-animal>
-    </div>
-    <div class="animal-list">
+    <h4> Add New Animal</h4>
+    <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>
+    <h3> Animal List</h3>
     <animal-list [childAnimalList] = "masterAnimalList" (clickSender)="editAnimal($event)"> </animal-list>
-    </div>
-    <div class="edit-animal">
-    <edit-animal [childSelectedAnimal] = "selectedAnimal" (editButtonClickedSender)="finishedEditing()"> </edit-animal>
-    </div>
+    <h3> Edit Animal</h3>
+    <edit-animal [childSelectedAnimal] = "selectedAnimal" (editDoneSender)="doneEdit()"> </edit-animal>
   </div>
   `
 })
@@ -29,24 +25,22 @@ export class AppComponent{
   day: number = this.currentTime.getDate();
   year: number = this.currentTime.getFullYear();
 
+  masterAnimalList: Animal[] = [
+    new Animal("Tiger", "Tim",5,"carnivarus","caves",5,"male","yawning", "walking"),
+    new Animal("giraffe", "Gif",1,"herbivore","Trees",2,"female","hanging around", "sleep"),
+    new Animal("Polo Bear", "Polo",2,"carnivarus","water",8,"female","swimming", "yawning"),
+    new Animal("monkey", "Monk",1,"herbivore","Trees",6,"female","hanging around", "sleep")
+  ];
   selectedAnimal = null;
 
-  masterAnimalList: Animal[] = [
-    new Animal('./resources/images/polar.jpg', 'Polar Bear', 'Nora', 4, 'Carnivore', 'Polar Cove', 5, 'Female', 'Having Ice Caps to rest on', 'Swimming Long Distances'),
-    new Animal('./resources/images/koala.jpg', 'Koala', 'Sleepy', 2, 'Herbivore', 'Near the bears', 2, 'Male', 'Sleeping in trees and not being bothered', 'Being bothered'),
-    new Animal('./resources/images/kangaroo.jpg', 'Kangaroo', 'Joy', 3, 'Herbivore', 'Near the bears', 4, 'Female', 'Eating cones full of seeds and boxing', 'Being challenged by another kangaroo'),
-    new Animal('./resources/images/badger.jpg', 'Honey Badger', 'Tom', 15, 'Carnivore', 'In the weasel section', 1, 'Male', 'Finding beehives and eating all the honey', 'Having other honey badgers enter their cave')
-  ];
-
-
-  editButtonClicked(clickedAnimal: Animal){
+  editAnimal(clickedAnimal: Animal){
     this.selectedAnimal = clickedAnimal;
   }
-  finishedEditing(){
+  doneEdit(){
     this.selectedAnimal = null;
   }
-  addNewAnimal(newAnimalFromChild: Animal){
-    this.masterAnimalList.push(newAnimalFromChild);
+  addAnimal(newAnimal: Animal){
+    this.masterAnimalList.push(newAnimal);
   }
 
 }
