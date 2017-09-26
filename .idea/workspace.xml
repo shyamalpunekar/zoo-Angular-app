@@ -4,7 +4,6 @@
     <list default="true" id="a6d3f73e-e015-4547-a7a4-7f21a1efac7b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.component.ts" afterPath="$PROJECT_DIR$/app/app.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/new-animal.component.ts" afterPath="$PROJECT_DIR$/app/new-animal.component.ts" />
     </list>
     <ignored path="zoo-app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,28 +27,28 @@
       <file leaf-file-name="diet.pipe.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/diet.pipe.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="38" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="38" />
+            <state relative-caret-position="525">
+              <caret line="35" column="5" selection-start-line="12" selection-start-column="4" selection-end-line="35" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="animal-list.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/animal-list.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="17" column="40" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/app.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="35" column="351" selection-start-line="35" selection-start-column="351" selection-end-line="35" selection-end-column="351" />
+            <state relative-caret-position="423">
+              <caret line="43" column="3" selection-start-line="43" selection-start-column="3" selection-end-line="43" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="animal-list.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/animal-list.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="410">
+              <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -103,10 +102,10 @@
         <option value="$PROJECT_DIR$/app/app.module.ts" />
         <option value="$PROJECT_DIR$/app/animal.model.ts" />
         <option value="$PROJECT_DIR$/app/edit-animal.component.ts" />
-        <option value="$PROJECT_DIR$/app/animal-list.component.ts" />
         <option value="$PROJECT_DIR$/resources/styles/styles.css" />
         <option value="$PROJECT_DIR$/app/new-animal.component.ts" />
         <option value="$PROJECT_DIR$/app/diet.pipe.ts" />
+        <option value="$PROJECT_DIR$/app/animal-list.component.ts" />
         <option value="$PROJECT_DIR$/app/app.component.ts" />
       </list>
     </option>
@@ -660,14 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="35" column="351" selection-start-line="35" selection-start-column="351" selection-end-line="35" selection-end-column="351" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/new-animal.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-573">
@@ -678,16 +669,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/diet.pipe.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="38" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="38" />
+        <state relative-caret-position="525">
+          <caret line="35" column="5" selection-start-line="12" selection-start-column="4" selection-end-line="35" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/animal-list.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="17" column="40" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="40" />
+        <state relative-caret-position="410">
+          <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="43" column="3" selection-start-line="43" selection-start-column="3" selection-end-line="43" selection-end-column="3" />
           <folding />
         </state>
       </provider>
