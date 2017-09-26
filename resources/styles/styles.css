@@ -11,10 +11,37 @@ color: #bc6c16;
 color: #871816;
 }
 body {
+
   background-image: url(../images/background.jpg);
-  background-repeat: no-repeat;
+  background-repeat: cover;
   background-size: 100%;
+
 }
-label , .formh3{
-  color: white;
+label {
+  color: #003300;
 }
+
+
+h3{
+color: black;
+}
+
+.agePreference, .dietPreference, #addnewAnimal{
+    margin-left: 150px;
+}
+
+.well{
+    background-color: green;
+    color: white;
+}
+
+select{
+    background-color: #ff9966;
+}
+
+.btn btn-primary{
+    color: #004d00;
+}
+
+
+

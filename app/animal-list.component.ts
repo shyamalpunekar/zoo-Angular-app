@@ -4,34 +4,43 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'animal-list',
   template: `
-  <div id="animalList">
-  <h3>Select an option below:</h3>
-  <select (change)="onChange($event.target.value)">
-      <option value="allAnimals" selected="selected">All Animals</option>
-      <option value="young">Young Animals</option>
-      <option value="old">Old Animals</option>
- </select>
- </div>
- <hr>
-
-    <div class="well">
-    <div *ngFor = "let currentAnimal of childAnimalList | ageFilter:filterByAge" >
-      <img class="image" src='{{currentAnimal.img}}' alt="picture of an animal"/>
-      <h3> Species: {{currentAnimal.species}} </h3>
-      <h4> Name: {{currentAnimal.name}}</h4>
-      <h5> Age: {{currentAnimal.age}}</h5>
-      <h5> Diet: {{currentAnimal.diet}} </h5>
-      <h5> Location: {{currentAnimal.location}} </h5>
-      <h5> Number of Caretakers: {{currentAnimal.caretakers}} </h5>
-      <h5> gender: {{currentAnimal.gender}} </h5>
-      <h5> Likes: {{currentAnimal.likes}} </h5>
-      <h5> Dislikes: {{currentAnimal.dislikes}} </h5>
-
-      <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit Animal details</button>
-      <hr>
+  <div class="agePreference">
+    <label>View by Age</label><br>
+    <select (change)="onFilterAgeChange($event.target.value)">
+      <option value="allAnimals" class = "selectText" selected="selected">All Animals</option>
+      <option value="young">Young Animals(less than 2)</option>
+      <option value="old">Mature Animals(greater than 2)</option>
+     </select>
+   </div>
+   <hr>
+   <div class="dietPreference">
+    <label>View by diet</label><br>
+    <select (change)="onFilterDietChange($event.target.value)">
+       <option value="allAnimals" selected="selected" class="selectText">All Animals</option>
+       <option value="plants">Plant</option>
+       <option value="meat">Meat</option>
+       <option value="both">Both</option>
+    </select>
+  </div>
+<hr><br>
+  <ul>
+    <div *ngFor = "let animal of childAnimalList | maturity:filterByAge | diet:filterByDiet" >
+      <div class = "container">
+      <div class="col-md-6">
+          <h3> Species: {{animal.species}} </h3>
+          <h4> Name: <strong> {{animal.name}}</strong></h4>
+          <h4> Age: {{animal.age}} years old </h4>
+          <h4 [class]="dietColor(animal)"> Diet: {{animal.diet}} </h4>
+          <h4> Location: {{animal.location}} </h4>
+          <h4> Number of Caretakers: {{animal.numCaretaker}} </h4>
+          <h4> Gender: {{animal.gender}} </h4>
+          <h4> Likes: {{animal.likes}} </h4>
+          <h4> Dislikes: {{animal.dislikes}} </h4>
+          <button class="btn btn-primary" (click)="editAnimalClicked(animal)">Edit</button>
+      </div>
     </div>
-    </div>
-
+   </div>
+  </ul>
   `
 })
 
@@ -40,16 +49,27 @@ export class AnimalListComponent {
   @Input() childAnimalList: Animal[];
   @Output() clickSender = new EventEmitter();
   filterByAge: string;
+  filterByDiet: string;
 
+  dietColor(animal){
+    if (animal.diet == "Carnivore" ){
+      return "red";
+    } else if(animal.diet == "Herbivore") {
+      return "green";
+    } else if (animal.diet == "Omnivore"){
+      return "blue";
+    }
+  }
 
-  editButtonHasBeenClicked(clickedAnimal: Animal){
+  editAnimalClicked(clickedAnimal: Animal){
     this.clickSender.emit(clickedAnimal);
   }
 
-  onChange(optionFromMenu){
+  onFilterAgeChange(optionFromMenu){
     this.filterByAge = optionFromMenu;
   }
-
-
-
+  onFilterDietChange(optionFromMenu){
+    this.filterByDiet = optionFromMenu;
   }
+
+}

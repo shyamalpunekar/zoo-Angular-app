@@ -4,43 +4,46 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'app-root',
   template: `
-  <div class="container">
-    <h1> Animal Tracker</h1>
-    <h3> {{currentZoo}}</h3>
-    <h4> {{month}}/{{day}}/{{year}}</h4>
-    <h4> Add New Animal</h4>
-    <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>
-    <h3> Animal List</h3>
-    <animal-list [childAnimalList] = "masterAnimalList" (clickSender)="editAnimal($event)"> </animal-list>
 
-    <edit-animal [childSelectedAnimal] = "selectedAnimal" (editDoneSender)="doneEdit()"> </edit-animal>
+  <div class="well">
+    <h3>Welcome to Zoo</h3>
+    <h4> Would you like to Add New Animal, Please, scroll Down!</h4>
+    <img src="/resources/images/background.jpg" alt="Picture of an zoo"/>
+    <hr>
+
+
+    <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)"></animal-list>
+
+    <hr>
+
+     <new-animal (newAnimalSender)="addAnimal($event)">Add New Animal</new-animal>
+
+
+    <edit-animal [childSelectedAnimal]="selectedAnimal" (editDoneButtonClickedSender)="doneEditing()"> </edit-animal>
   </div>
   `
 })
-//add jpeg to resource/images
+
 export class AppComponent{
-  currentZoo: string = 'Oregon Zoo';
-  currentTime = new Date();
-  month: number = this.currentTime.getMonth() + 1;
-  day: number = this.currentTime.getDate();
-  year: number = this.currentTime.getFullYear();
 
   masterAnimalList: Animal[] = [
-    new Animal("./resources/images/tiger.jpg","Tiger", "Tim",5,"carnivorous","caves",5,"male","yawning", "walking"),
-    new Animal("./resources/images/giraffe.jpg","giraffe", "Gif",1,"herbivorous","Trees",2,"female","hanging around", "sleep"),
-    new Animal("./resources/images/polo.jpg", "Polo Bear", "Polo",2,"carnivorous","water",8,"female","swimming", "yawning"),
-    new Animal("./resources/images/monkey.jpg", "monkey", "Monk",1,"herbivorous","Trees",6,"female","hanging around", "sleep")
+    new Animal('Tiger', 'King', 4, 'carnivorous', 'meat', 3, 'Female', 'looking for meat', 'entertainment'),
+    new Animal('Polo bear', 'Polo', 8, 'Omnivore', 'fish', 5, 'Male', 'swimming', 'looking around'),
+    new Animal(' giraffe', 'Gif', 5, 'herbivorous', 'plants', 2, 'Female', 'eating', 'walking'),
+    new Animal(' monkey', 'Monk', 1, 'herbivorous', 'plants and fruits', 1, 'Female', 'eating', 'scrubbing')
   ];
   selectedAnimal = null;
 
-  editAnimal(clickedAnimal: Animal){
+  editAnimal(clickedAnimal){
     this.selectedAnimal = clickedAnimal;
   }
-  doneEdit(){
+
+  doneEditing(){
     this.selectedAnimal = null;
   }
-  addAnimal(newAnimal: Animal){
-    this.masterAnimalList.push(newAnimal);
+
+  addAnimal(newAnimalFromChild: Animal){
+    this.masterAnimalList.push(newAnimalFromChild);
   }
 
 }
