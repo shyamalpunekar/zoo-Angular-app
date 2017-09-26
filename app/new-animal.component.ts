@@ -4,34 +4,41 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'new-animal',
   template: `
-  <div *ngIf="!showNewAnimalForm">
-    <button (click)="newAnimalButtonClicked()">Add New Animal</button><hr>
-  </div>
-  <div *ngIf="showNewAnimalForm" class="newAnimalForm">
-    <h1>New Animal</h1>
-    <div class="form-group">
+
+
+    <div id="newAnimal" class="jumbotron">
+      <h3>Add New Animal</h3>
+      <label>Add Image Link</label>
+      <input class="newAnimalInput" #newImage>
        <label>Enter Animal Species:</label>
-       <input type="text" #newSpecies> <br>
+       <input type="text" #animalSpecies> <br>
        <label>Enter Animal Name:</label>
-       <input type="text" #newName> <br>
+       <input type="text" #name> <br>
        <label>Enter Animal Age:</label>
-       <input type="number" #newAge> <br>
+       <input type="number" #age> <br>
        <label>Enter Animal Diet:</label>
-       <input type="text" #newDiet> <br>
+       <input type="text" #diet> <br>
        <label>Enter Animal location:</label>
-       <input type="text" #newLocation> <br>
+       <input type="text" #location> <br>
        <label>Enter Animal caretaker:</label>
-       <input type="number" #newCaretaker> <br>
-       <label>Enter Animal gender:</label>
-       <input type="text" #newgender> <br>
+       <input type="number" #caretakers> <br>
+
+       <div class="animalGender">
+       <label>Select Animals gender</label>
+         <select class="newAnimalInput" #gender (change)="onChange($event.target.value)">
+            <option value="allAnimals" selected disabled>Select Gender</option>
+            <option value="female" >Female</option>
+            <option value="male">Male</option>
+         </select>
+        </div>
        <label>Enter Animal Likes:</label>
        <input type="text" #newLikes> <br>
        <label>Enter Animal Dislikes:</label>
        <input type="text" #newDislikes> <br>
-       <button (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretaker.value, newGender.value, newLikes.value, newDislikes.value); newSpecies.value=''; newName.value=''; newAge.value=''; newDiet.value=''; newLocation.value=''; newCaretaker.value=''; newgender.value=''; newLikes.value=''; newDislikes.value=''; ">Add New Animal</button>
+       <a href="#"><button class="btn btn-primary" (click)="submitForm(newImage.value, animalSpecies.value, name.value, age.value, diet.value, location.value, caretakers.value, gender.value, like.value, dislike.value); newImage.value =''; animalSpecies.value = ''; name.value = ''; age.value = ''; diet.value =''; location.value =''; caretakers.value = ''; gender.value = ''; like.value = ''; dislike.value = '';">Add New Animal!</button></a>
        <br>
      </div>
-   </div>
+
   `
 })
 
@@ -39,11 +46,10 @@ export class NewAnimalComponent {
   @Output() newAnimalSender = new EventEmitter();
   showNewAnimalForm : boolean;
 
-  submitForm (newSpecies: string, newName: string, newAge: number, newDiet: string, newLocation: string, newCaretaker: number,newGender: string,newLikes: string, newDislikes: string){
-    var newAnimalToAdd: Animal = new Animal(newSpecies, newName, newAge, newDiet,newLocation,newCaretaker,newGender,newLikes,newDislikes);
-    this.newAnimalSender.emit(newAnimalToAdd)
-    this.showNewAnimalForm = false;
-  }
+  submitForm(img: string, animalSpecies: string, name: string, age: number, diet: string, location: string, caretakers: number, gender: string, like: string, dislike: string){
+  var newAnimalToAdd: Animal = new Animal(img, animalSpecies, name, age, diet, location, caretakers, gender, like, dislike);
+  this.newAnimalSender.emit(newAnimalToAdd);
+}
 
   newAnimalButtonClicked(){
       this.showNewAnimalForm = true;
