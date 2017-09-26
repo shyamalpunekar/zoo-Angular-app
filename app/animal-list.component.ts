@@ -5,7 +5,7 @@ import { Animal } from './animal.model';
   selector: 'animal-list',
   template: `
   <div class="agePreference">
-    <label>View by Age</label><br>
+    <label>Would you like to see Young or Old Animals? Please choose one of the option below</label><br>
     <select (change)="onFilterAgeChange($event.target.value)">
       <option value="allAnimals" class = "selectText" selected="selected">All Animals</option>
       <option value="young">Young Animals(less than 2)</option>
@@ -14,7 +14,7 @@ import { Animal } from './animal.model';
    </div>
    <hr>
    <div class="dietPreference">
-    <label>View by diet</label><br>
+    <label>Would you like to see Animals who eats plants or meat or both? Please choose one of the option below.</label><br>
     <select (change)="onFilterDietChange($event.target.value)">
        <option value="allAnimals" selected="selected" class="selectText">All Animals</option>
        <option value="plants">Plant</option>
@@ -26,10 +26,12 @@ import { Animal } from './animal.model';
   <ul>
     <div *ngFor = "let animal of childAnimalList | maturity:filterByAge | diet:filterByDiet" >
       <div class = "container">
-      <div class="col-md-6">
+      <div class="col-md-8">
+          <img class="image" src='{{animal.img}}' alt="picture of an animal"/>
           <h3> Species: {{animal.species}} </h3>
           <h4> Name: <strong> {{animal.name}}</strong></h4>
           <h4> Age: {{animal.age}} years old </h4>
+          <h4> Description: {{animal.description}}</h4>
           <h4 [class]="dietColor(animal)"> Diet: {{animal.diet}} </h4>
           <h4> Location: {{animal.location}} </h4>
           <h4> Number of Caretakers: {{animal.numCaretaker}} </h4>
@@ -37,6 +39,7 @@ import { Animal } from './animal.model';
           <h4> Likes: {{animal.likes}} </h4>
           <h4> Dislikes: {{animal.dislikes}} </h4>
           <button class="btn btn-primary" (click)="editAnimalClicked(animal)">Edit</button>
+          <hr>
       </div>
     </div>
    </div>
