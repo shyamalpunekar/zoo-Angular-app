@@ -24,8 +24,7 @@ import { Animal } from './animal.model';
 
      <new-animal (newAnimalSender)="addAnimal($event)">Add New Animal</new-animal>
 
-
-    <edit-animal [childSelectedAnimal]="selectedAnimal" (editDoneButtonClickedSender)="doneEditing()"> </edit-animal>
+    <edit-animal [childSelectedAnimal]="selectedAnimal" (editDoneButtonClickedSender)="doneEdit()"> </edit-animal>
   </div>
   `
 })
@@ -44,7 +43,7 @@ export class AppComponent{
     this.selectedAnimal = clickedAnimal;
   }
 
-  doneEditing(){
+  doneEdit(){
     this.selectedAnimal = null;
   }
 

@@ -38,6 +38,8 @@ import { Animal } from './animal.model';
           <h4> Gender: {{animal.gender}} </h4>
           <h4> Likes: {{animal.likes}} </h4>
           <h4> Dislikes: {{animal.dislikes}} </h4>
+          <h4 id="editText"> Would you like to Edit existing Animal Details? Click on Edit button and please, scroll Down!</h4>
+
           <button class="btn btn-primary" (click)="editAnimalClicked(animal)">Edit</button>
           <hr>
       </div>
