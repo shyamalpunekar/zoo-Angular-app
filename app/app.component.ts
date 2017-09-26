@@ -14,15 +14,13 @@ import { Animal } from './animal.model';
 
     <h4>With ongoing renovations to existing facilities and with every new exhibit or system, the zoo aims to be a model of sustainable conservation of natural resources.</h4>
 
-    <h3> Would you like to Add New Animal, Please, scroll Down!</h3>
+    <h3> Would you like to Add New Animal? Please, scroll Down!</h3>
 
     <img src="/resources/images/background.jpg" alt="Picture of an zoo"/>
     <hr>
 
-
     <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)"></animal-list>
 
-    <hr>
 
      <new-animal (newAnimalSender)="addAnimal($event)">Add New Animal</new-animal>
 

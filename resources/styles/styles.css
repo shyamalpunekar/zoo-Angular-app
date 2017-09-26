@@ -39,8 +39,20 @@ select{
     background-color: #cc9900;
 }
 
-.btn btn-primary{
-    color: #cc9900;
+.btn-primary{
+    background-color: #cc9900;
+}
+
+input{
+    color: green;
+}
+
+.form-control{
+    width: 30%;
+}
+
+.form-group{
+   margin-left: 150px;
 }
 
 

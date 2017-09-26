@@ -12,34 +12,47 @@ import { Animal } from './animal.model';
   <hr>
 
   <div *ngIf="showNewAnimalForm" class="newAnimalForm">
+
+    <div class= "form-group">
     <h3>New Animal</h3>
-    <div>
+       <div class="addNewAnimalMember">
        <label>Enter Animal Species:</label>
-       <input #newSpecies>
-       <br>
+       <input #newSpecies type = "text" class="form-control">
+       </div>
+       <div class="addNewAnimalMember">
        <label>Enter Animal Name:</label>
-       <input #newName>
-       <br>
+       <input #newName type = "text" class="form-control">
+       </div>
+       <div class="addNewAnimalMember">
        <label>Enter Animal Age:</label>
-       <input #newAge>
-       <br>
+       <input #newAge type = "number" class="form-control">
+       </div>
+       <div class="addNewAnimalMember">
        <label>Enter Animal Diet:</label>
-       <input #newDiet>
+       <input #newDiet type = "text" class="form-control">
+       </div>
+       <div class="addNewAnimalMember">
        <label>Enter Animal Location:</label>
-       <input #newLocation>
-       <br>
+       <input #newLocation type = "text" class="form-control">
+       </div>
+       <div class="addNewAnimalMember">
        <label>Enter Number of Caretakers for this Animal:</label>
-       <input #newCaretaker>
-       <br>
+       <input #newCaretaker type = "number" class="form-control">
+       </div>
+       <div class="addNewAnimalMember">
        <label>Enter Animal Gender:</label>
-       <input #newGender>
-       <br>
+       <input #newGender type = "text" class="form-control">
+       </div>
+       <div class="addNewAnimalMember">
        <label>Enter Animal Likes:</label>
-       <input #newLikes>
+       <input #newLikes type = "text" class="form-control">
+       </div>
+       <div class="addNewAnimalMember">
        <label>Enter Animal Dislikes:</label>
-       <input #newDislikes>
-       <br>
-       <button class="btn btn-primary" (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretaker.value, newGender.value, newLikes.value, newDislikes.value); newSpecies.value=''; newName.value=''; newAge.value=''; newDiet.value=''; newLocation.value=''; newCaretaker.value=''; newGender.value=''; newLikes.value=''; newDislikes.value='';">Add</button>
+       <input #newDislikes type = "text" class="form-control">
+       </div><br>
+
+       <button class="btn btn-primary" (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretaker.value, newGender.value, newLikes.value, newDislikes.value); newSpecies.value=''; newName.value=''; newAge.value=''; newDiet.value=''; newLocation.value=''; newCaretaker.value=''; newGender.value=''; newLikes.value=''; newDislikes.value='';">Add Animal</button>
        <br>
      </div>
    </div>
