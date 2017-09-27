@@ -27,11 +27,11 @@ import { Animal } from './animal.model';
     <div *ngFor = "let animal of childAnimalList | maturity:filterByAge | diet:filterByDiet" >
       <div class = "container">
       <div class="col-md-8">
-          <img class="image" src='{{animal.img}}' alt="picture of an animal"/>
+
           <h3> Species: {{animal.species}} </h3>
           <h4> Name: <strong> {{animal.name}}</strong></h4>
           <h4> Age: {{animal.age}} years old </h4>
-          <h4> Description: {{animal.description}}</h4>
+          <h4> Description: {{animal.description}} </h4>
           <h4 [class]="dietColor(animal)"> Diet: {{animal.diet}} </h4>
           <h4> Location: {{animal.location}} </h4>
           <h4> Number of Caretakers: {{animal.numCaretaker}} </h4>
@@ -41,6 +41,7 @@ import { Animal } from './animal.model';
           <h4 id="editText"> Would you like to Edit existing Animal Details? Click on Edit button and please, scroll Down!</h4>
 
           <button class="btn btn-primary" (click)="editAnimalClicked(animal)">Edit</button>
+
           <hr>
       </div>
     </div>
@@ -67,7 +68,7 @@ export class AnimalListComponent {
   }
 
   editAnimalClicked(clickedAnimal: Animal){
-    
+
 
     this.editAnimalClickedSender.emit(clickedAnimal);
   }

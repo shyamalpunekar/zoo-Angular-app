@@ -15,6 +15,7 @@ import { Animal } from './animal.model';
 
     <div class= "form-group">
     <h3>New Animal</h3>
+
        <div class="addNewAnimalMember">
        <label>Enter Animal Species:</label>
        <input #newSpecies type = "text" class="form-control">
@@ -25,7 +26,12 @@ import { Animal } from './animal.model';
        </div>
        <div class="addNewAnimalMember">
        <label>Enter Animal Age:</label>
-       <input #newAge type = "number" class="form-control">
+       <input #newAge type = "text" class="form-control">
+       </div>
+
+       <div class="addNewAnimalMember">
+       <label>Enter Animal Description:</label>
+       <input #newDescription type = "text" class="form-control">
        </div>
        <div class="addNewAnimalMember">
        <label>Enter Animal Diet:</label>
@@ -37,7 +43,7 @@ import { Animal } from './animal.model';
        </div>
        <div class="addNewAnimalMember">
        <label>Enter Number of Caretakers for this Animal:</label>
-       <input #newCaretaker type = "number" class="form-control">
+       <input #newCaretaker type = "text" class="form-control">
        </div>
        <div class="addNewAnimalMember">
        <label>Enter Animal Gender:</label>
@@ -52,7 +58,8 @@ import { Animal } from './animal.model';
        <input #newDislikes type = "text" class="form-control">
        </div><br>
 
-       <button class="btn btn-primary" (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretaker.value, newGender.value,
+       <button class="btn btn-primary" (click)="submitForm(newSpecies.value, newName.value, newAge.value,
+         newDescription.value, newDiet.value, newLocation.value, newCaretaker.value, newGender.value,
           newLikes.value, newDislikes.value); newSpecies.value=''; newName.value=''; newAge.value=''; newDiet.value=''; newLocation.value=''; newCaretaker.value=''; newGender.value=''; newLikes.value=''; newDislikes.value='';">Add Animal</button>
        <br>
      </div>
@@ -64,8 +71,8 @@ export class NewAnimalComponent {
   @Output() newAnimalSender = new EventEmitter();
   displayNewAnimalForm : boolean;
 
-  submitForm (newImg: string, newSpecies: string, newName: string, newAge: number, newDescription: string, newDiet: string, newLocation: string, newCaretaker: number, newGender: string, newLikes: string, newDislikes: string){
-    var newAnimalToAdd: Animal = new Animal(newImg, newSpecies, newName, newAge,newDescription, newDiet, newLocation, newCaretaker, newGender, newLikes, newDislikes);
+  submitForm (newSpecies: string, newName: string, newAge: number, newDescription: string, newDiet: string, newLocation: string, newCaretaker: number, newGender: string, newLikes: string, newDislikes: string){
+    var newAnimalToAdd: Animal = new Animal(newSpecies, newName, newAge,newDescription, newDiet, newLocation, newCaretaker, newGender, newLikes, newDislikes);
     this.newAnimalSender.emit(newAnimalToAdd)
     this.displayNewAnimalForm = false;
   }
