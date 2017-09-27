@@ -27,7 +27,27 @@ _An application toto track animals at your local Zoo.._
 
 # Screenshots
 
-![Display Animal list]()
+## Display animal List
+![Image of Main page](images/animal-list.png)
+
+## Add a new animal to the zoo
+![Looking up results](images/NewAnimalForm.png)
+
+## The ability to edit form, e.g. monkey
+![Looking up results](images/editAnimalForm.png)
+
+## Animal Details after editing the edit form
+![Looking up results](images/AnimalDetailsAfterEdit.png)
+
+## Sort by the animals diet e.g. select Meat
+![Looking up results](images/filterByDiet.png)
+
+## Sort by the animals age. e.g Select young(less than 2)
+
+![Looking up results](images/filterByAge1.png)
+![Looking up results](images/filterByAge2.png)
+
+
 
 # Setup
   https://github.com/shyamalpunekar/zoo-Angular-app
