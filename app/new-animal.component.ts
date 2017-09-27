@@ -52,7 +52,8 @@ import { Animal } from './animal.model';
        <input #newDislikes type = "text" class="form-control">
        </div><br>
 
-       <button class="btn btn-primary" (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretaker.value, newGender.value, newLikes.value, newDislikes.value); newSpecies.value=''; newName.value=''; newAge.value=''; newDiet.value=''; newLocation.value=''; newCaretaker.value=''; newGender.value=''; newLikes.value=''; newDislikes.value='';">Add Animal</button>
+       <button class="btn btn-primary" (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretaker.value, newGender.value,
+          newLikes.value, newDislikes.value); newSpecies.value=''; newName.value=''; newAge.value=''; newDiet.value=''; newLocation.value=''; newCaretaker.value=''; newGender.value=''; newLikes.value=''; newDislikes.value='';">Add Animal</button>
        <br>
      </div>
    </div>
@@ -63,8 +64,8 @@ export class NewAnimalComponent {
   @Output() newAnimalSender = new EventEmitter();
   displayNewAnimalForm : boolean;
 
-  submitForm (newSpecies: string, newName: string, newAge: number, newDiet: string, newLocation: string, newCaretaker: number, newGender: string, newLikes: string, newDislikes: string){
-    var newAnimalToAdd: Animal = new Animal(newSpecies, newName, newAge, newDiet, newLocation, newCaretaker, newGender, newLikes, newDislikes);
+  submitForm (newImg: string, newSpecies: string, newName: string, newAge: number, newDescription: string, newDiet: string, newLocation: string, newCaretaker: number, newGender: string, newLikes: string, newDislikes: string){
+    var newAnimalToAdd: Animal = new Animal(newImg, newSpecies, newName, newAge,newDescription, newDiet, newLocation, newCaretaker, newGender, newLikes, newDislikes);
     this.newAnimalSender.emit(newAnimalToAdd)
     this.displayNewAnimalForm = false;
   }

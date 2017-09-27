@@ -19,12 +19,12 @@ import { Animal } from './animal.model';
     <img src="/resources/images/background.jpg" alt="Picture of an zoo"/>
     <hr>
 
-    <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)"></animal-list>
+    <animal-list [childAnimalList]="masterAnimalList" (editAnimalClickedSender)="editAnimal($event)"></animal-list>
 
 
      <new-animal (newAnimalSender)="addAnimal($event)">Add New Animal</new-animal>
 
-    <edit-animal [childSelectedAnimal]="selectedAnimal" (editDoneButtonClickedSender)="doneEdit()"> </edit-animal>
+    <edit-animal [childSelectedAnimal]="selectedAnimal" (editDoneButtonClickedSender)="doneEditing()"> </edit-animal>
   </div>
   `
 })
@@ -40,10 +40,11 @@ export class AppComponent{
   selectedAnimal = null;
 
   editAnimal(clickedAnimal){
+
     this.selectedAnimal = clickedAnimal;
   }
 
-  doneEdit(){
+  doneEditing(){
     this.selectedAnimal = null;
   }
 

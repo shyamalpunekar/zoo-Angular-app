@@ -52,7 +52,7 @@ import { Animal } from './animal.model';
 export class AnimalListComponent {
 
   @Input() childAnimalList: Animal[];
-  @Output() clickSender = new EventEmitter();
+  @Output() editAnimalClickedSender = new EventEmitter();
   filterByAge: string;
   filterByDiet: string;
 
@@ -67,7 +67,9 @@ export class AnimalListComponent {
   }
 
   editAnimalClicked(clickedAnimal: Animal){
-    this.clickSender.emit(clickedAnimal);
+    
+
+    this.editAnimalClickedSender.emit(clickedAnimal);
   }
 
   onFilterAgeChange(optionFromMenu){
